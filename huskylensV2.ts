@@ -2,7 +2,7 @@
  * Custom graphic block
  */
 //% weight=100 color=#0fbc11 icon="\uf067" block="HuskylensV2"
-//% groups='["Communication","Algorithm Switch","Face Recognition","Object Recognition","Object Tracking","Object Classification","Self-learning Classification","Line Tracking","Color Recognition","Instance Segmentation","Gesture Recognition","Pose Recognition","License Plate Recognition","Text Recognition","Emotion Recognition","Tag Recognition","QR Code Recognition","Barcode Recognition","Custom Model"]'
+//% groups='["Communication","Algorithm Switch","Face Recognition","Object Recognition","Object Tracking","Color Recognition","Object Classification","Self-learning Classification","Instance Segmentation","Hand Recognition","Pose Recognition","License Plate Recognition","Optical Char Recognition","Line Tracking","Face Emotion Recognition","Tag Recognition","QR Code Recognition","Barcode Recognition","Custom Model"]'
 namespace huskylensV2 {
     // MakeCode global types are automatically injected, these declarations are only to suppress IDE warnings
     // These declarations are not needed in the actual MakeCode compilation environment
@@ -1033,7 +1033,7 @@ namespace huskylensV2 {
         ALGORITHM_OCR_RECOGNITION = 8,          // 8
         //% block="Line tracking"
         ALGORITHM_LINE_TRACKING = 4,            // 4
-        //% block="Emotion recognition"
+        //% block="Face Emotion Recognition"
         ALGORITHM_EMOTION_RECOGNITION = 12,     // 12
         //% block="Tag recognition"
         ALGORITHM_TAG_RECOGNITION = 6,          // 6
@@ -1879,7 +1879,7 @@ namespace huskylensV2 {
         return getInstancePropertyValueID(r, alg);
     }
 
-    // ================= Gesture Recognition =================
+    // ================= Hand Recognition =================
     function getGesturePropertyValue(result: ResultVariant, prop: GestureProperty): number {
         if (!result) return 0;
         if (result instanceof HandResult) {
@@ -2192,10 +2192,10 @@ namespace huskylensV2 {
         PinkyFingerTipY,
     }
 
-    /** Get one-time gesture recognition result and cache it */
-    //% block="get gesture recognition result"
+    /** Get one-time Hand Recognition result and cache it */
+    //% block="get Hand Recognition result"
     //% weight=149
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getResultGestureRecogtion(): void {
         getResultInternal(ALGORITHM_HAND_RECOGNITION);
     }
@@ -2203,7 +2203,7 @@ namespace huskylensV2 {
     /** Whether gesture detected */
     //% block="gesture detected?"
     //% weight=148
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function availableGestureRecogtion(): boolean {
         return availableInternal(ALGORITHM_HAND_RECOGNITION);
     }
@@ -2211,7 +2211,7 @@ namespace huskylensV2 {
     /** Gesture property nearest to center */
     //% block="gesture nearest to center %alg"
     //% weight=147
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getCachedCenterGestureResult(alg: GestureProperty): number {
         const r = getCachedCenterResultInternal(ALGORITHM_HAND_RECOGNITION);
         return getGesturePropertyValue(r, alg);
@@ -2220,7 +2220,7 @@ namespace huskylensV2 {
     /** Total number of detected gestures */
     //% block="number of detected gestures"
     //% weight=146
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getCachedResultNumGesture(): number {
         return getCachedResultNumInternal(ALGORITHM_HAND_RECOGNITION);
     }
@@ -2229,7 +2229,7 @@ namespace huskylensV2 {
     //% block="gesture %index %alg"
     //% weight=145
     //% index.min=1 index.defl=1
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getCachedResultGestureProperty(index: number, alg: GestureProperty): number {
         const r = getCachedResultByIndexInternal(ALGORITHM_HAND_RECOGNITION, index - 1);
         return getGesturePropertyValue(r, alg);
@@ -2238,7 +2238,7 @@ namespace huskylensV2 {
     /** Total number of learned gesture IDs */
     //% block="number of learned gesture IDs"
     //% weight=144
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getNumLearnedGestureIDs(): number {
         return getCachedResultLearnedNumInternal(ALGORITHM_HAND_RECOGNITION);
     }
@@ -2247,7 +2247,7 @@ namespace huskylensV2 {
     //% block="gesture ID %index exists?"
     //% weight=143
     //% index.min=1 index.defl=1
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function gestureIdExists(index: number): boolean {
         const r = getCachedResultByIDInternal(ALGORITHM_HAND_RECOGNITION, index);
         return r != null;
@@ -2257,7 +2257,7 @@ namespace huskylensV2 {
     //% block="number of gestures with ID %index"
     //% weight=142
     //% index.min=1 index.defl=1
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getNumGestureByID(index: number): number {
         return getCachedResultNumByIDInternal(ALGORITHM_HAND_RECOGNITION, index);
     }
@@ -2266,7 +2266,7 @@ namespace huskylensV2 {
     //% block="gesture ID %index %alg"
     //% weight=141
     //% index.min=1 index.defl=1
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getGesturePropertyByID(index: number, alg: GesturePropertyID): number {
         const r = getCachedResultByIDInternal(ALGORITHM_HAND_RECOGNITION, index);
         return getGesturePropertyValueID(r, alg);
@@ -2277,7 +2277,7 @@ namespace huskylensV2 {
     //% weight=140
     //% id.min=1 id.defl=1
     //% n.min=1 n.defl=1
-    //% group="Gesture Recognition"
+    //% group="Hand Recognition"
     export function getGesturePropertyByIDNth(id: number, n: number, alg: GesturePropertyID): number {
         const r = getCachedIndexResultByIDInternal(ALGORITHM_HAND_RECOGNITION, id, n - 1);
         return getGesturePropertyValueID(r, alg);
@@ -2864,9 +2864,9 @@ namespace huskylensV2 {
     }
 
     /** 获取一次文字识别结果并缓存 */
-    //% block="Get text recognition result"
+    //% block="Get Optical Char Recognition result"
     //% weight=119
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getResultTextRecogtion(): void {
         getResultInternal(ALGORITHM_OCR_RECOGNITION);
     }
@@ -2874,7 +2874,7 @@ namespace huskylensV2 {
     /** 是否检测到文字 */
     //% block="Whether text detected"
     //% weight=118
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function availableTextRecogtion(): boolean {
         return availableInternal(ALGORITHM_OCR_RECOGNITION);
     }
@@ -2882,7 +2882,7 @@ namespace huskylensV2 {
     /** 靠近中心的文字属性 */
     //% block="Text near center %alg"
     //% weight=117
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getCachedCenterTextResult(alg: TextProperty): any {
         const r = getCachedCenterResultInternal(ALGORITHM_OCR_RECOGNITION);
         return getTextPropertyValue(r, alg);
@@ -2891,7 +2891,7 @@ namespace huskylensV2 {
     /** 检测到的文字总数 */
     //% block="Number of detected texts"
     //% weight=116
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getCachedResultNumText(): number {
         return getCachedResultNumInternal(ALGORITHM_OCR_RECOGNITION);
     }
@@ -2900,7 +2900,7 @@ namespace huskylensV2 {
     //% block="Text %index %alg"
     //% weight=115
     //% index.min=1 index.defl=1
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getCachedResultTextProperty(index: number, alg: TextProperty): any {
         const r = getCachedResultByIndexInternal(ALGORITHM_OCR_RECOGNITION, index - 1);
         return getTextPropertyValue(r, alg);
@@ -2909,7 +2909,7 @@ namespace huskylensV2 {
     /** 已学习的文字ID总数 */
     //% block="Number of learned text IDs"
     //% weight=114
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getNumLearnedTextIDs(): number {
         return getCachedResultLearnedNumInternal(ALGORITHM_OCR_RECOGNITION);
     }
@@ -2918,7 +2918,7 @@ namespace huskylensV2 {
     //% block="Does text ID %index exist?"
     //% weight=113
     //% index.min=1 index.defl=1
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function textIdExists(index: number): boolean {
         const r = getCachedResultByIDInternal(ALGORITHM_OCR_RECOGNITION, index);
         return r != null;
@@ -2928,7 +2928,7 @@ namespace huskylensV2 {
     //% block="Number of texts with ID %index"
     //% weight=112
     //% index.min=1 index.defl=1
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getNumTextByID(index: number): number {
         return getCachedResultNumByIDInternal(ALGORITHM_OCR_RECOGNITION, index);
     }
@@ -2937,7 +2937,7 @@ namespace huskylensV2 {
     //% block="Text ID %index %alg"
     //% weight=111
     //% index.min=1 index.defl=1
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getTextPropertyByID(index: number, alg: TextPropertyID): any {
         const r = getCachedResultByIDInternal(ALGORITHM_OCR_RECOGNITION, index);
         return getTextPropertyValueID(r, alg);
@@ -2948,7 +2948,7 @@ namespace huskylensV2 {
     //% weight=110
     //% id.min=1 id.defl=1
     //% n.min=1 n.defl=1
-    //% group="Text Recognition"
+    //% group="Optical Char Recognition"
     export function getTextPropertyByIDNth(id: number, n: number, alg: TextPropertyID): any {
         const r = getCachedIndexResultByIDInternal(ALGORITHM_OCR_RECOGNITION, id, n - 1);
         return getTextPropertyValueID(r, alg);
@@ -3059,23 +3059,23 @@ namespace huskylensV2 {
         Height,
     }
 
-    //% block="Get emotion recognition result"
+    //% block="Get Face Emotion Recognition result"
     //% weight=104
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getResultEmotionRecogtion(): void {
         getResultInternal(ALGORITHM_EMOTION_RECOGNITION);
     }
 
     //% block="Whether emotion detected"
     //% weight=103
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function availableEmotionRecogtion(): boolean {
         return availableInternal(ALGORITHM_EMOTION_RECOGNITION);
     }
 
     //% block="Emotion near center %alg"
     //% weight=102
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getCachedCenterEmotionResult(alg: EmotionProperty): number {
         const r = getCachedCenterResultInternal(ALGORITHM_EMOTION_RECOGNITION);
         return getEmotionPropertyValue(r, alg);
@@ -3083,7 +3083,7 @@ namespace huskylensV2 {
 
     //% block="Number of detected emotions"
     //% weight=101
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getCachedResultNumEmotion(): number {
         return getCachedResultNumInternal(ALGORITHM_EMOTION_RECOGNITION);
     }
@@ -3091,7 +3091,7 @@ namespace huskylensV2 {
     //% block="Emotion %index %alg"
     //% weight=100
     //% index.min=1 index.defl=1
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getCachedResultEmotionProperty(index: number, alg: EmotionProperty): number {
         const r = getCachedResultByIndexInternal(ALGORITHM_EMOTION_RECOGNITION, index - 1);
         return getEmotionPropertyValue(r, alg);
@@ -3099,7 +3099,7 @@ namespace huskylensV2 {
 
     //% block="Number of learned emotion IDs"
     //% weight=99
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getNumLearnedEmotionIDs(): number {
         return getCachedResultLearnedNumInternal(ALGORITHM_EMOTION_RECOGNITION);
     }
@@ -3107,7 +3107,7 @@ namespace huskylensV2 {
     //% block="Does emotion ID %index exist?"
     //% weight=98
     //% index.min=1 index.defl=1
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function emotionIdExists(index: number): boolean {
         const r = getCachedResultByIDInternal(ALGORITHM_EMOTION_RECOGNITION, index);
         return r != null;
@@ -3116,7 +3116,7 @@ namespace huskylensV2 {
     //% block="Number of emotions with ID %index"
     //% weight=97
     //% index.min=1 index.defl=1
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getNumEmotionByID(index: number): number {
         return getCachedResultNumByIDInternal(ALGORITHM_EMOTION_RECOGNITION, index);
     }
@@ -3124,7 +3124,7 @@ namespace huskylensV2 {
     //% block="Emotion ID %index %alg"
     //% weight=96
     //% index.min=1 index.defl=1
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getEmotionPropertyByID(index: number, alg: EmotionPropertyID): number {
         const r = getCachedResultByIDInternal(ALGORITHM_EMOTION_RECOGNITION, index);
         return getEmotionPropertyValueID(r, alg);
@@ -3134,7 +3134,7 @@ namespace huskylensV2 {
     //% weight=95
     //% id.min=1 id.defl=1
     //% n.min=1 n.defl=1
-    //% group="Emotion Recognition"
+    //% group="Face Emotion Recognition"
     export function getEmotionPropertyByIDNth(id: number, n: number, alg: EmotionPropertyID): number {
         const r = getCachedIndexResultByIDInternal(ALGORITHM_EMOTION_RECOGNITION, id, n - 1);
         return getEmotionPropertyValueID(r, alg);
