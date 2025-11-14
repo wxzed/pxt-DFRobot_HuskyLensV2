@@ -196,7 +196,7 @@
   "huskylensV2.Algorithm.ALGORITHM_GAZE_RECOGNITION|block": "Gaze recognition",
   "huskylensV2.Algorithm.ALGORITHM_FACE_ORIENTATION|block": "Face orientation",
   "huskylensV2.Algorithm.ALGORITHM_FALLDOWN_RECOGNITION|block": "Fall-down recognition",
-  "huskylensV2.Algorithm.ALGORITHM_SEGMENT|block": "Segmentation",
+  "huskylensV2.Algorithm.ALGORITHM_SEGMENT|block": "Instance Segmentation",
   "huskylensV2.Algorithm.ALGORITHM_FACE_ACTION_RECOGNITION|block": "Face action recognition",
   "huskylensV2.Algorithm.ALGORITHM_CUSTOM0|block": "Custom 0",
   "huskylensV2.Algorithm.ALGORITHM_CUSTOM1|block": "Custom 1",

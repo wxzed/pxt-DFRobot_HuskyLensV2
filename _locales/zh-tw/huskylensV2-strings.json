@@ -196,7 +196,7 @@
   "huskylensV2.Algorithm.ALGORITHM_GAZE_RECOGNITION|block": "視線識別",
   "huskylensV2.Algorithm.ALGORITHM_FACE_ORIENTATION|block": "人臉朝向",
   "huskylensV2.Algorithm.ALGORITHM_FALLDOWN_RECOGNITION|block": "跌倒識別",
-  "huskylensV2.Algorithm.ALGORITHM_SEGMENT|block": "影像分割",
+  "huskylensV2.Algorithm.ALGORITHM_SEGMENT|block": "實例分割",
   "huskylensV2.Algorithm.ALGORITHM_FACE_ACTION_RECOGNITION|block": "人臉動作識別",
   "huskylensV2.Algorithm.ALGORITHM_CUSTOM0|block": "自定義0",
   "huskylensV2.Algorithm.ALGORITHM_CUSTOM1|block": "自定義1",
