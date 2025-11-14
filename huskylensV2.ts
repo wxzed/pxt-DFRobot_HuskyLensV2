@@ -412,7 +412,18 @@ namespace huskylensV2 {
         // Check if name_length is 0, if so, there is no name field
         if (name_length === 0) {
             this.name = "";
-            this.content = "";
+            // For license plate and OCR recognition, content may still exist even when name_length is 0
+            // Try to parse content from buffer[11] if buffer is long enough
+            if (buffer.length > 11) {
+                let content_length = buffer[11];
+                if (content_length > 0 && buffer.length > 12 + content_length) {
+                    this.content = bufferToStringAtOffset(buffer, 12, content_length);
+                } else {
+                    this.content = "";
+                }
+            } else {
+                this.content = "";
+            }
             //console.log("name_length is 0, skipping name and content");
             //console.log("================================");
             return;
