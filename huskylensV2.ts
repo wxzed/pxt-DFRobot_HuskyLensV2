@@ -2294,13 +2294,13 @@ namespace huskylensV2 {
     }
 
     // ================= Pose Recognition (Human Pose) =================
-    function getPosePropertyValue(result: ResultVariant, prop: PoseProperty): number {
+    function getPosePropertyValue(result: ResultVariant, prop: PoseProperty): any {
         if (!result) return 0;
         if (result instanceof PoseResult) {
             const pr = result as PoseResult;
             switch (prop) {
                 case PoseProperty.ID: return pr.ID;
-                case PoseProperty.Name: return pr.name.length > 0 ? 1 : 0;
+                case PoseProperty.Name: return pr.name.length > 0 ? pr.name : "";
                 case PoseProperty.XCenter: return pr.xCenter;
                 case PoseProperty.YCenter: return pr.yCenter;
                 case PoseProperty.Width: return pr.width;
@@ -2345,12 +2345,12 @@ namespace huskylensV2 {
         return getObjectPropertyValue(result, prop as any);
     }
 
-    function getPosePropertyValueID(result: ResultVariant, prop: PosePropertyID): number {
+    function getPosePropertyValueID(result: ResultVariant, prop: PosePropertyID): any {
         if (!result) return 0;
         if (result instanceof PoseResult) {
             const pr = result as PoseResult;
             switch (prop) {
-                case PosePropertyID.Name: return pr.name.length > 0 ? 1 : 0;
+                case PosePropertyID.Name: return pr.name.length > 0 ? pr.name : "";
                 case PosePropertyID.XCenter: return pr.xCenter;
                 case PosePropertyID.YCenter: return pr.yCenter;
                 case PosePropertyID.Width: return pr.width;
@@ -2581,7 +2581,7 @@ namespace huskylensV2 {
     //% block="pose nearest to center %alg"
     //% weight=137
     //% group="Pose Recognition"
-    export function getCachedCenterPoseResult(alg: PoseProperty): number {
+    export function getCachedCenterPoseResult(alg: PoseProperty): any {
         const r = getCachedCenterResultInternal(ALGORITHM_POSE_RECOGNITION);
         return getPosePropertyValue(r, alg);
     }
@@ -2599,7 +2599,7 @@ namespace huskylensV2 {
     //% weight=135
     //% index.min=1 index.defl=1
     //% group="Pose Recognition"
-    export function getCachedResultPoseProperty(index: number, alg: PoseProperty): number {
+    export function getCachedResultPoseProperty(index: number, alg: PoseProperty): any {
         const r = getCachedResultByIndexInternal(ALGORITHM_POSE_RECOGNITION, index - 1);
         return getPosePropertyValue(r, alg);
     }
@@ -2636,7 +2636,7 @@ namespace huskylensV2 {
     //% weight=131
     //% index.min=1 index.defl=1
     //% group="Pose Recognition"
-    export function getPosePropertyByID(index: number, alg: PosePropertyID): number {
+    export function getPosePropertyByID(index: number, alg: PosePropertyID): any {
         const r = getCachedResultByIDInternal(ALGORITHM_POSE_RECOGNITION, index);
         return getPosePropertyValueID(r, alg);
     }
@@ -2647,7 +2647,7 @@ namespace huskylensV2 {
     //% id.min=1 id.defl=1
     //% n.min=1 n.defl=1
     //% group="Pose Recognition"
-    export function getPosePropertyByIDNth(id: number, n: number, alg: PosePropertyID): number {
+    export function getPosePropertyByIDNth(id: number, n: number, alg: PosePropertyID): any {
         const r = getCachedIndexResultByIDInternal(ALGORITHM_POSE_RECOGNITION, id, n - 1);
         return getPosePropertyValueID(r, alg);
     }
