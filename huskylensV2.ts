@@ -2807,7 +2807,7 @@ namespace huskylensV2 {
         return getPlatePropertyValueID(r, alg);
     }
 
-    // ================= 文字识别（OCR） =================
+    // ================= Optical Char Recognition =================
     function getTextPropertyValue(result: ResultVariant, prop: TextProperty): any {
         if (!result) return 0;
         const res = result as Result;
@@ -2926,7 +2926,7 @@ namespace huskylensV2 {
         return getTextPropertyValueID(r, alg);
     }
 
-    // ================= 巡线跟踪 =================
+    // ================= Line Tracking =================
     function getLineTrackingPropertyValue(result: ResultVariant, prop: LineTrackingProperty): number {
         if (!result) return 0;
         const res = result as Result;
@@ -2994,7 +2994,7 @@ namespace huskylensV2 {
         return getLineTrackingPropertyValue(r, alg);
     }
 
-    // ================= 表情识别 =================
+    // ================= Face Emotion Recognition =================
     function getEmotionPropertyValue(result: ResultVariant, prop: EmotionProperty): number {
         return getObjectPropertyValue(result, prop as any);
     }
@@ -3112,7 +3112,7 @@ namespace huskylensV2 {
         return getEmotionPropertyValueID(r, alg);
     }
 
-    // ================= 标签识别 =================
+    // ================= Tag Recognition =================
     function getTagPropertyValue(result: ResultVariant, prop: TagProperty): any {
         if (!result) return 0;
         const res = result as Result;
@@ -3255,7 +3255,7 @@ namespace huskylensV2 {
         return getTagPropertyValueID(r, alg);
     }
 
-    // ================= 二维码识别 =================
+    // ================= QR Code Recognition =================
     function getQRCodePropertyValue(result: ResultVariant, prop: QRCodeProperty): any {
         if (!result) return 0;
         const res = result as Result;
@@ -3398,7 +3398,7 @@ namespace huskylensV2 {
         return getQRCodePropertyValueID(r, alg);
     }
 
-    // ================= 条形码识别 =================
+    // ================= Barcode Recognition" =================
     function getBarcodePropertyValue(result: ResultVariant, prop: BarcodeProperty): any {
         if (!result) return 0;
         const res = result as Result;
@@ -3541,7 +3541,7 @@ namespace huskylensV2 {
         return getBarcodePropertyValueID(r, alg);
     }
 
-    // ================= 自训练模型 =================
+    // ================= Custom Model =================
     function getCustomModelPropertyValue(result: ResultVariant, prop: CustomModelProperty): number {
         return getObjectPropertyValue(result, prop as any);
     }

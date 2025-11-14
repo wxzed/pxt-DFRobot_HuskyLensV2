@@ -371,7 +371,7 @@
   "{id:group}Hand Recognition": "手势识别",
   "{id:group}Pose Recognition": "姿态识别",
   "{id:group}License Plate Recognition": "车牌识别",
-  "{id:group}Optical Char Recognition": "文字识别",
+  "{id:group}Optical Char Recognition": "光学字符识别",
   "{id:group}Face Emotion Recognition": "表情识别",
   "{id:group}Tag Recognition": "标签识别",
   "{id:group}QR Code Recognition": "二维码识别",
