@@ -1007,6 +1007,7 @@ namespace huskylensV2 {
 
     // Algorithm selection enum
     export enum Algorithm {
+        //% blockHidden=true
         ALGORITHM_ANY = 0,                      // 0
         //% block="Face recognition"
         ALGORITHM_FACE_RECOGNITION = 1,         // 1
@@ -1040,16 +1041,25 @@ namespace huskylensV2 {
         ALGORITHM_QRCODE_RECOGNITION = 10,      // 10
         //% block="Barcode recognition"
         ALGORITHM_BARCODE_RECOGNITION = 11,     // 11
+        //% blockHidden=true
         ALGORITHM_BLINK_RECOGNITION = 16,       // 16
+        //% blockHidden=true
         ALGORITHM_GAZE_RECOGNITION = 17,        // 17
+        //% blockHidden=true
         ALGORITHM_FACE_ORIENTATION = 18,        // 18
+        //% blockHidden=true
         ALGORITHM_FALLDOWN_RECOGNITION = 19,    // 19
+        //% blockHidden=true
         ALGORITHM_FACE_ACTION_RECOGNITION = 21, // 21
+        //% blockHidden=true
         ALGORITHM_CUSTOM0 = 22,                 // 22
+        //% blockHidden=true
         ALGORITHM_CUSTOM1 = 23,                 // 23
+        //% blockHidden=true
         ALGORITHM_CUSTOM2 = 24,                 // 24
+        //% blockHidden=true
         ALGORITHM_BUILTIN_COUNT = 25,           // 25
-        
+        //% blockHidden=true
         ALGORITHM_CUSTOM_BEGIN = 128,           // 128
     }
 
