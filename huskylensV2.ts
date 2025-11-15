@@ -2,7 +2,7 @@
  * Custom graphic block
  */
 //% weight=100 color=#0fbc11 icon="\uf067" block="HuskylensV2"
-//% groups='["Communication","Algorithm Switch","Face Recognition","Object Recognition","Object Tracking","Color Recognition","Object Classification","Self-learning Classification","Instance Segmentation","Hand Recognition","Pose Recognition","License Plate Recognition","Optical Char Recognition","Line Tracking","Face Emotion Recognition","Tag Recognition","QR Code Recognition","Barcode Recognition","Custom Model"]'
+//% groups='["Communication","Algorithm Switch","Face Recognition","Object Recognition","Object Tracking","Color Recognition","Object Classification","Self-learning Classification","Instance Segmentation","Hand Recognition","Pose Recognition","License Plate Recognition","Optical Char Recognition","Line Tracking","Face Emotion Recognition","Tag Recognition","QR Code Recognition","Barcode Recognition"]'
 namespace huskylensV2 {
     // MakeCode global types are automatically injected, these declarations are only to suppress IDE warnings
     // These declarations are not needed in the actual MakeCode compilation environment
@@ -3564,35 +3564,47 @@ namespace huskylensV2 {
 
     // Custom model properties (with ID)
     export enum CustomModelProperty {
+        //% blockHidden=true
         //% block="ID"
         ID,
+        //% blockHidden=true
         //% block="Name"
         Name,
+        //% blockHidden=true
         //% block="X Center"
         XCenter,
+        //% blockHidden=true
         //% block="Y Center"
         YCenter,
+        //% blockHidden=true
         //% block="Width"
         Width,
+        //% blockHidden=true
         //% block="Height"
         Height,
     }
 
     // Custom model properties (without ID)
     export enum CustomModelPropertyID {
+        //% blockHidden=true
         //% block="Name"
         Name,
+        //% blockHidden=true
         //% block="X Center"
         XCenter,
+        //% blockHidden=true
         //% block="Y Center"
         YCenter,
+        //% blockHidden=true
         //% block="Width"
         Width,
+        //% blockHidden=true
         //% block="Height"
         Height,
     }
 
     /** HUSKYLENS 2切换算法ID直到成功 */
+    //% blockHidden=true
     //% block="HUSKYLENS 2 switch algorithm ID %algorithmId until success"
     //% weight=64
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3603,6 +3615,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID请求一次数据存入结果 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId request data and store result"
     //% weight=63
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3613,6 +3626,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID检测到目标 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId target detected?"
     //% weight=62
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3623,6 +3637,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID靠近中心的目标属性 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId target near center %alg1"
     //% weight=61
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3634,6 +3649,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID检测到的目标总数 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId number of detected targets"
     //% weight=60
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3644,6 +3660,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID第num个目标的属性 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId target %num %alg1"
     //% weight=59
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3656,6 +3673,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID已学习的目标ID总数 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId number of learned target IDs"
     //% weight=58
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3666,6 +3684,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID ID的目标存在 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId target ID %targetId exists?"
     //% weight=57
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3678,6 +3697,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID ID的目标总数 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId number of targets with ID %targetId"
     //% weight=56
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3689,6 +3709,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID ID的目标属性 */
+    //% blockHidden=true
     //% block="Algorithm ID %algorithmId target ID %targetId %alg2"
     //% weight=55
     //% algorithmId.min=1 algorithmId.defl=128
@@ -3701,6 +3722,7 @@ namespace huskylensV2 {
     }
 
     /** 算法ID ID的第num个目标的属性 */
+    //% blockHidden=true
     //% block="Algorithm %algorithmId ID%targetId No.%num %alg2"
     //% inlineInputMode=inline
     //% weight=54
