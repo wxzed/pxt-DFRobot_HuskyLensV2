@@ -925,19 +925,8 @@ namespace huskylensV2 {
     }
 
     function getCachedResultLearnedNumInternal(algo: number): number {
-        let count = 0;
         algo = toRealID(algo);
-      
-        for (let i = 0; i < MAX_RESULT_NUM; i++) {
-          const r = result[algo][i];
-          if (r != null) {
-            const res = r as Result;
-            if (res.ID) {
-              count++;
-            }
-          }
-        }
-        return count;
+        return getCachedResultMaxID(algo);
     }
 
     function getCachedResultNumByIDInternal(algo: number, ID: number): number {
