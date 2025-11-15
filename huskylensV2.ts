@@ -826,7 +826,7 @@ namespace huskylensV2 {
                       buf[j] = receive_buffer[j];
                   }
                   info = new PacketData(buf.slice(5, buf.length - 1));
-                  maxID[algo] = info.total_results_learned;
+                  maxID[algo] = info.maxID;
                   if (info.total_results > MAX_RESULT_NUM) {
                     info.total_results = MAX_RESULT_NUM;
                   }
