@@ -593,7 +593,10 @@ namespace huskylensV2 {
     }
 
     let retry = 3
-    let maxID = 0
+    let maxID: number[] = [];
+    for (let i = 0; i < ALGORITHM_COUNT; i++) {
+        maxID.push(0);
+    }
     let timeOutTimer = 0
     // Use loop to initialize array to ensure ES5 compatibility
     let i2c_cached_data: number[] = []
@@ -795,7 +798,10 @@ namespace huskylensV2 {
       return ret;
     }
 
-    function getCachedResultMaxID(algo:number): number { return maxID; }
+    function getCachedResultMaxID(algo:number): number { 
+        algo = toRealID(algo);
+        return maxID[algo] || 0; 
+    }
 
     function getResultInternal(algo:number) : number {
         const dataBuf = Buffer.create(0);
@@ -820,7 +826,7 @@ namespace huskylensV2 {
                       buf[j] = receive_buffer[j];
                   }
                   info = new PacketData(buf.slice(5, buf.length - 1));
-                  maxID = info.maxID;
+                  maxID[algo] = info.maxID;
                   if (info.total_results > MAX_RESULT_NUM) {
                     info.total_results = MAX_RESULT_NUM;
                   }
